@@ -1,0 +1,5 @@
+FROM node:18-alpine as dist
+WORKDIR /opt/project
+COPY ./ ./
+RUN npm i
+ENTRYPOINT ["/bin/sh", "-c" , "npm run start_db"]

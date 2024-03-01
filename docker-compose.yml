@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    json-server:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile.json-server
+        ports:
+            - 8090:8090
+    web-store:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile.web
+        ports:
+            - 80:80

@@ -1,0 +1,25 @@
+.layout {
+    height: 100%;
+    padding: 20px 106px;
+
+    &__content {
+        height: 100%;
+
+        &__data {
+            height: 100%;
+        }
+
+        &__tree {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-content {
+        &__container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
