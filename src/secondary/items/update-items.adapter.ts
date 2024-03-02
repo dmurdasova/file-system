@@ -1,13 +1,11 @@
-import { useCallback, useMemo } from 'react';
-import { IFolder, IFile } from 'src/domain/entities';
 import { useNotificationService } from '../notification/notification-service.adapter';
-import { getItemsUseCase } from 'src/primary';
 import { useFoldersRepository } from '../folders';
+import { useCallback, useMemo } from 'react';
+import { updateItemsUseCase } from 'src/primary/items/update-items';
+import { TreeDataNode } from 'antd';
+import { fromTreeDataNode } from 'src/utils';
 
-export function useGetItems(): (
-    term?: string,
-    timeout?: number
-) => Promise<ReadonlyArray<IFolder | IFile>> {
+export function useUpdateItems(): (items: ReadonlyArray<TreeDataNode>) => Promise<void> {
     const foldersRepository = useFoldersRepository();
     const notificationService = useNotificationService();
 
@@ -17,15 +15,16 @@ export function useGetItems(): (
     );
 
     const callback = useCallback(
-        async (term?: string, timeout = 1500) => {
+        async (items: ReadonlyArray<TreeDataNode>) => {
             // Let's emulate here waiting for backend
             await new Promise((res) => {
                 setTimeout(() => {
                     res(null);
-                }, timeout);
+                }, 1000);
             });
 
-            return await getItemsUseCase(term, deps);
+            const mapped = fromTreeDataNode(items);
+            await updateItemsUseCase(mapped, deps);
         },
         [deps]
     );

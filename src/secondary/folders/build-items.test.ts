@@ -2,6 +2,7 @@ import { Folder } from 'src/domain/entities';
 import { IApiFile } from '../contracts/ApiFile';
 import { IApiFolder } from '../contracts/ApiFolder';
 import { buildItems } from './build-items';
+import { ApiType } from '../contracts';
 import assert from 'assert';
 
 describe('buildItems function', () => {
@@ -10,14 +11,14 @@ describe('buildItems function', () => {
             {
                 id: '1',
                 title: 'Folder1',
-                type: 'folder',
+                type: ApiType.Folder,
                 files: ['1', '3', '4'],
                 folders: []
             },
             {
                 id: '2',
                 title: 'Folder2',
-                type: 'folder',
+                type: ApiType.Folder,
                 files: [],
                 folders: []
             }
@@ -27,17 +28,17 @@ describe('buildItems function', () => {
             {
                 id: '1',
                 name: 'File1',
-                type: 'file'
+                type: ApiType.File
             },
             {
                 id: '3',
                 name: 'File3',
-                type: 'file'
+                type: ApiType.File
             },
             {
                 id: '4',
                 name: 'File4',
-                type: 'file'
+                type: ApiType.File
             }
         ];
 

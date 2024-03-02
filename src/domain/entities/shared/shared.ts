@@ -4,5 +4,5 @@ export interface IIdentifiable {
 
 export interface ISystemElement {
     readonly title: string;
-    isFile: () => boolean;
+    isFile: boolean;
 }

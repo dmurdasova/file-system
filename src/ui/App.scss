@@ -4,8 +4,10 @@
 
     &__content {
         height: 100%;
+        position: relative;
 
-        &__data {
+        &__loader {
+            width: 100%;
             height: 100%;
         }
 

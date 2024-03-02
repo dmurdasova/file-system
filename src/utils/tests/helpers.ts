@@ -3,7 +3,7 @@ import { IFile, IFolder } from 'src/domain/entities';
 export const createFile = (id: number, title: string): IFile => ({
     id,
     title,
-    isFile: () => true
+    isFile: true
 });
 
 export const createFolder = (
@@ -13,7 +13,7 @@ export const createFolder = (
 ): IFolder => ({
     id,
     title,
-    isFile: () => false,
+    isFile: false,
     children,
     add: (child) => children.push(child)
 });

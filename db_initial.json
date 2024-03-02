@@ -1,0 +1,44 @@
+{
+    "files": [
+        { "id": "1", "name": "Resume_JohnDoe.docx" },
+        { "id": "2", "name": "ProjectReport_Budget2022.pdf" },
+        { "id": "3", "name": "FamilyPhoto_Vacation2021.jpg" },
+        { "id": "4", "name": "MeetingMinutes_TeamMeeting.txt" },
+        { "id": "5", "name": "CodeSnippet_CalculatorApp.js" },
+        { "id": "6", "name": "Budget_TravelExpenses.xlsx" },
+        { "id": "7", "name": "VacationPlan_Europe.doc" },
+        { "id": "8", "name": "Presentation_ClientPitch.pptx" },
+        { "id": "9", "name": "ImageGallery_Wedding.png" },
+        { "id": "10", "name": "ResearchPaper_ArtificialIntelligence.pdf" },
+        { "id": "11", "name": "Proposal_BusinessExpansion.docx" },
+        { "id": "12", "name": "Spreadsheet_FinancialAnalysis.xlsx" }
+    ],
+    "folders": [
+        {
+            "id": "1",
+            "title": "Documents",
+            "files": ["1", "4"]
+        },
+        {
+            "id": "2",
+            "title": "Photos",
+            "files": ["3"]
+        },
+        {
+            "id": "3",
+            "title": "Projects",
+            "folders": ["4"],
+            "files": ["2", "5", "6", "7", "10"]
+        },
+        {
+            "id": "5",
+            "title": "NewFolder"
+        },
+        {
+            "id": "4",
+            "title": "Personal",
+            "files": ["12"],
+            "folders": ["5"]
+        }
+    ]
+}

@@ -2,7 +2,7 @@ import { notification } from 'antd';
 import { INotificationService } from '../../domain/ports';
 
 const service: INotificationService = {
-    notify: (message: string, type: 'info' | 'error' = 'info') => {
+    notify: (message: string, type: 'info' | 'error' | 'success' = 'info') => {
         notification.open({ message, type });
     }
 };

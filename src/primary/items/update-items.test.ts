@@ -1,9 +1,9 @@
 import { IFoldersRepository, INotificationService } from 'src/domain/ports';
-import { getItemsUseCase } from './get-items';
 import { IFile, IFolder } from 'src/domain/entities';
 import { createFile, createFolder } from 'src/utils';
+import { updateItemsUseCase } from './update-items';
 
-describe('Get items UseCase', () => {
+describe('Update items UseCase', () => {
     let foldersRepository: IFoldersRepository;
     let notificationService: INotificationService;
 
@@ -31,9 +31,9 @@ describe('Get items UseCase', () => {
     beforeAll(() => {
         foldersRepository = {
             getRoot(_term?: string): Promise<ReadonlyArray<IFolder | IFile>> {
-                return Promise.resolve(mocks);
+                return Promise.resolve([]);
             },
-            update(data) {
+            update(_data: ReadonlyArray<IFolder | IFile>) {
                 return Promise.resolve();
             }
         };
@@ -46,9 +46,8 @@ describe('Get items UseCase', () => {
     });
 
     test('should return the array of data', async () => {
-        const service = jest.spyOn(foldersRepository, 'getRoot');
-        const data = await getItemsUseCase('', { foldersRepository, notificationService });
-        expect(service).toHaveBeenCalled();
-        expect(data).toEqual(mocks);
+        const service = jest.spyOn(foldersRepository, 'update');
+        await updateItemsUseCase(mocks, { foldersRepository, notificationService });
+        expect(service).toHaveBeenCalledWith(mocks);
     });
 });

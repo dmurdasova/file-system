@@ -1,5 +1,8 @@
+import { ApiType } from './ApiType';
+
 export interface IApiFile {
     id: string;
     name: string;
-    type: 'file';
+    order?: string;
+    type: ApiType.File;
 }

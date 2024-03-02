@@ -7,18 +7,13 @@ export interface IFolder extends IIdentifiable, ISystemElement {
 }
 
 export class Folder implements IFolder {
-    public readonly id: number;
-    public readonly title: string;
-
     private _children: Array<IFolder | IFile>;
 
     public get children() {
         return this._children as ReadonlyArray<IFolder | IFile>;
     }
 
-    constructor(id: number, title: string) {
-        this.id = id;
-        this.title = title;
+    constructor(public readonly id: number, public readonly title: string) {
         this._children = [];
     }
 
@@ -26,7 +21,7 @@ export class Folder implements IFolder {
         this._children.push(child);
     }
 
-    public isFile() {
+    public get isFile() {
         return false;
     }
 }
